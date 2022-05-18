@@ -7,5 +7,7 @@
 	"app": "/Users/steven.cardona/Desktop/Work/TAE/Module 2,3/Exercises/MobileAutomationLocators/disneyland-7-4.apk",
 	"automationName": "UiAutomator2",
 	"autoGrantPermissions": "true",
-	"skipServerInstallation": "true"
+	"skipServerInstallation": "true",
+	"noReset": false,
+	"fullReset": true
 }
