@@ -1,9 +1,9 @@
-package screens;
+package screens.mapScreen;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import screens.mapWidgets.CategoriesWidget;
+import screens.mapScreen.widgets.CategoriesWidget;
 import util.screens.BaseScreen;
 
 /**
