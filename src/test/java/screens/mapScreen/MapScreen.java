@@ -3,7 +3,7 @@ package screens.mapScreen;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import screens.mapScreen.widgets.CategoriesWidget;
+import screens.mapScreen.widgets.ModalCategories;
 import util.screens.BaseScreen;
 
 /**
@@ -23,7 +23,6 @@ public class MapScreen extends BaseScreen {
         super(driver);
     }
 
-    // AndroidElements
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*categoryTitleLayout\")")
     private AndroidElement categoryList;
 
@@ -39,8 +38,8 @@ public class MapScreen extends BaseScreen {
      * @author Steven.Cardona
      * Open the list of Open the list of categories
      */
-    public CategoriesWidget openCategoriesList() {
+    public ModalCategories openCategoriesList() {
         click(categoryList);
-        return new CategoriesWidget(driver);
+        return new ModalCategories(driver);
     }
 }

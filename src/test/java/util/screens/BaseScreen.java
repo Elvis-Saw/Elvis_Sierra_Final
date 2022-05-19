@@ -100,19 +100,6 @@ public abstract class BaseScreen {
         log.info(textOnElement.getText());
     }
 
-    /**
-     * Swipe vertical.
-     *
-     * @param percentage of swipe
-     */
-    @SuppressWarnings({"rawtypes", "unused"})
-    public void swipeVertical(float percentage) {
-        Dimension windowSize = driver.manage().window().getSize();
-        TouchAction ta = new TouchAction(driver);
-        ta.press(PointOption.point(207, 582)).moveTo(PointOption.point(8,
-                -360)).release().perform();
-    }
-
 
     /**
      * Wrapper for click  event specifying custom wait.
@@ -139,18 +126,16 @@ public abstract class BaseScreen {
         element.click();
     }
 
-
     /**
-     * Wrapper for sendKeys event.
+     * return the text contained in element
      *
-     * @param element   : AndroidElement
-     * @param sequence: String
-     * @author Hans.Marquez
+     * @param element : AndroidElement
+     * @author Steven.Cardona
      */
-    public void sendKeys(AndroidElement element, String sequence) {
-        WebDriverWait wait = new WebDriverWait(driver, 15);
+    public String getText(AndroidElement element) {
+        WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(element));
-        element.sendKeys(sequence);
+        return element.getText();
     }
 
     /**

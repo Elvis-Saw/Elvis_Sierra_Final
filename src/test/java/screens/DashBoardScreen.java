@@ -5,6 +5,8 @@ import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.HowToUseLocators;
 import screens.mapScreen.MapScreen;
+import screens.menuScreen.MenuScreen;
+import screens.plansScreen.PlansScreen;
 import util.screens.BaseScreen;
 
 import static io.appium.java_client.pagefactory.LocatorGroupStrategy.ALL_POSSIBLE;
@@ -26,7 +28,6 @@ public class DashBoardScreen extends BaseScreen {
         super(driver);
     }
 
-    // AndroidElements
     @AndroidFindBy(id = "android:id/button2")
     private AndroidElement dismissPreferenceUpdateButton;
 
@@ -34,6 +35,12 @@ public class DashBoardScreen extends BaseScreen {
     @AndroidFindBy(accessibility = "Map, Tab, 2of5")
     @AndroidFindBy(uiAutomator = "//android.widget.ImageView[]")
     private AndroidElement mapButton;
+
+    @AndroidFindBy(accessibility = "More Options, Tab, 5of5")
+    private AndroidElement menuButton;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*tab_animated_icon\")")
+    private AndroidElement addAndOrderButton;
 
     /**
      * @author Hans.Marquez
@@ -54,10 +61,35 @@ public class DashBoardScreen extends BaseScreen {
 
     /**
      * @author Steven.Cardona
+     * Navigate to Settings Screen from DashBoard Screen.
+     */
+    public MenuScreen goToMenuScreen() {
+        click(menuButton);
+        return new MenuScreen(driver);
+    }
+
+    /**
+     * @author Steven.Cardona
+     * Navigate to Plans Screen from DashBoard Screen.
+     */
+    public PlansScreen goToPlansScreen() {
+        click(addAndOrderButton);
+        return new PlansScreen(driver);
+    }
+
+    /**
+     * @author Steven.Cardona
      * return true if map button element is displayed in screen, otherwise false.
      */
     public boolean mapButtonIsDisplayed() {
         return isElementAvailable(mapButton, 25);
     }
 
+    /**
+     * @author Steven.Cardona
+     * return true if menu button element is displayed in screen, otherwise false.
+     */
+    public boolean menuButtonIsDisplayed() {
+        return isElementAvailable(menuButton, 25);
+    }
 }

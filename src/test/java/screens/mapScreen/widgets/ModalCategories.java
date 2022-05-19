@@ -12,7 +12,7 @@ import java.util.ArrayList;
  *
  * @author Steven.Cardona
  */
-public class CategoriesWidget extends BaseScreen {
+public class ModalCategories extends BaseScreen {
 
     /**
      * Constructor method for standard screens object.
@@ -20,7 +20,7 @@ public class CategoriesWidget extends BaseScreen {
      * @param driver : AndroidDriver
      * @author Arley.Bolivar, Hans.Marquez
      */
-    public CategoriesWidget(AndroidDriver<AndroidElement> driver) {
+    public ModalCategories(AndroidDriver<AndroidElement> driver) {
         super(driver);
     }
 

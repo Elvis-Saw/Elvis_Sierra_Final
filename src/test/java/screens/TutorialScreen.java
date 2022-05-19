@@ -10,7 +10,6 @@ import util.screens.BaseScreen;
  *
  * @author Arley.Bolivar
  */
-
 public class TutorialScreen extends BaseScreen {
 
     /**
