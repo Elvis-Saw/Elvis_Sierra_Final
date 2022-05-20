@@ -5,6 +5,7 @@ import com.google.gson.JsonParser;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 /**
@@ -22,12 +23,10 @@ public class ConfigCapabilities {
     private static final String JSON_FILE_PATH = "src/test/resources/mobile_capabilities.json";
     private static final String APP = "app";
     private static final String AUTOMATION_NAME = "automationName";
-    private static final String NO_RESET = "noReset";
-    private static final String FULL_RESET = "fullReset";
     private static final JsonParser parser = new JsonParser();
 
     /**
-     * SetUp application.
+     * SetUp's application.
      *
      * @param capabilities : DesiredCapabilities
      * @author Arley.Bolivar
@@ -36,8 +35,6 @@ public class ConfigCapabilities {
         capabilities.setCapability("appPackage", getJsonDataProperty(APP_PACKAGE));
         capabilities.setCapability("appActivity", getJsonDataProperty(APP_ACTIVITY));
         capabilities.setCapability("app", getJsonDataProperty(APP));
-        capabilities.setCapability("noReset", getJsonDataProperty(NO_RESET));
-        capabilities.setCapability("fullReset", getJsonDataProperty(FULL_RESET));
     }
 
     /**
@@ -64,7 +61,10 @@ public class ConfigCapabilities {
         try {
             Object obj = parser.parse(new FileReader(JSON_FILE_PATH));
             JsonObject jsonObject = (JsonObject) obj;
-            return jsonObject.get(property).getAsString();
+            return jsonObject.get(property)
+                    .getAsString();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }

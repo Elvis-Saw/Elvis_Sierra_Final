@@ -3,8 +3,12 @@ package screens;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import screens.widgets.ModalCategories;
+import io.appium.java_client.pagefactory.HowToUseLocators;
 import util.screens.BaseScreen;
+
+import static io.appium.java_client.pagefactory.LocatorGroupStrategy.ALL_POSSIBLE;
+
+// TODO: Auto-generated Javadoc
 
 /**
  * Map screen.
@@ -12,11 +16,6 @@ import util.screens.BaseScreen;
  * @author Hans.Marquez
  */
 public class MapScreen extends BaseScreen {
-
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*categoryTitleLayout\")")
-    private AndroidElement categoryList;
-    @AndroidFindBy(id = "com.disney.wdpro.dlr:id/categoryTitle")
-    private AndroidElement categoryTitle;
 
     /**
      * Constructor method.
@@ -28,34 +27,38 @@ public class MapScreen extends BaseScreen {
         super(driver);
     }
 
+    // AndroidElements
+    @AndroidFindBy(uiAutomator = "")
+    private AndroidElement categoryList;
+
+    @AndroidFindBy(uiAutomator = "")
+    private AndroidElement filterButton;
+
+    @AndroidFindBy(uiAutomator = "")
+    private AndroidElement showListButton;
+
     /**
-     * Check if Category List element is displayed in screen, otherwise false.
-     *
-     * @return boolean
      * @author Hans.Marquez
+     * return true if Category List element is displayed in screen, otherwise false.
      */
     public boolean categoryIsDisplayed() {
         return isElementAvailable(categoryList);
     }
 
     /**
-     * Open the list of Open the list of categories
-     *
-     * @return ModalCategories
-     * @author Steven.Cardona
+     * @author Hans.Marquez
+     * return true if Filter Button element is displayed in screen, otherwise false.
      */
-    public ModalCategories openCategoriesList() {
-        click(categoryList);
-        return new ModalCategories(driver);
+    public boolean filterIsDisplayed() {
+        return isElementAvailable(filterButton);
     }
 
     /**
-     * Get category title text
-     *
-     * @return String
-     * @author Steven.Cardona
+     * @author Hans.Marquez
+     * return true if Show List Button element is displayed in screen, otherwise false.
      */
-    public String getCategoryTitle() {
-        return getText(categoryTitle);
+    public boolean showListIsDisplayed() {
+        return isElementAvailable(showListButton);
     }
+
 }
