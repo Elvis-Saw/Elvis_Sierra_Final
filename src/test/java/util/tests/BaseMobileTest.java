@@ -20,9 +20,9 @@ import java.net.URL;
  */
 public abstract class BaseMobileTest {
 
-    protected TutorialScreen tutorialScreen;
     public static AndroidDriver<AndroidElement> driver;
     public Logger log = Logger.getLogger(BaseMobileTest.class);
+    protected TutorialScreen tutorialScreen;
 
     public void setUpStartApp() {
         tutorialScreen = new TutorialScreen(getDriver());
@@ -39,7 +39,7 @@ public abstract class BaseMobileTest {
         ConfigCapabilities.deviceSetUp(capabilities);
         ConfigCapabilities.applicationSetUp(capabilities);
         try {
-            driver = new AndroidDriver<AndroidElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+            driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
         } catch (MalformedURLException exception) {
             exception.printStackTrace();
         }
@@ -67,14 +67,13 @@ public abstract class BaseMobileTest {
     }
 
     /**
-     * return SignUpOrLogInScreen after close the alerts.
+     * return DashBoardScreen after close the alerts.
      *
-     * @return SignUpOrLogInScreen
+     * @return DashBoardScreen
      * @author Arley.Bolivar
      */
     protected DashBoardScreen loadDashBoardScreen() {
         tutorialScreen.startPermissionsProcess();
-        return tutorialScreen.shareLocationPermissions();
+        return tutorialScreen.skipLocationPermissions();
     }
-
 }
