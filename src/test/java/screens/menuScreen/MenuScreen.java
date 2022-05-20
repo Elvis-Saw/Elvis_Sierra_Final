@@ -11,6 +11,19 @@ import util.screens.BaseScreen;
  * @author Steven.Cardona
  */
 public class MenuScreen extends BaseScreen {
+    @AndroidFindBy(accessibility = "Tip Board, 1 of 16, button")
+    private AndroidElement cardOfMenuScreen;
+    @AndroidFindBy(accessibility = "My Profile, 12 of 16, button")
+    private AndroidElement myProfileLink;
+    @AndroidFindBy(accessibility = "Property Rules, 13 of 16, button")
+    private AndroidElement propertyRulesLink;
+    @AndroidFindBy(accessibility = "Link to Account, 14 of 16, button")
+    private AndroidElement linkToAccount;
+    @AndroidFindBy(accessibility = "Help, 15 of 16, button")
+    private AndroidElement helpLink;
+    @AndroidFindBy(accessibility = "Privacy & Legal, 16 of 16, button")
+    private AndroidElement privacyAndLegalLink;
+
     /**
      * Constructor method for standard screens object.
      *
@@ -21,29 +34,11 @@ public class MenuScreen extends BaseScreen {
         super(driver);
     }
 
-    @AndroidFindBy(accessibility = "Tip Board, 1 of 16, button")
-    private AndroidElement cardOfMenuScreen;
-
-    @AndroidFindBy(accessibility = "My Profile, 12 of 16, button")
-    private AndroidElement myProfileLink;
-
-    @AndroidFindBy(accessibility = "Property Rules, 13 of 16, button")
-    private AndroidElement propertyRulesLink;
-
-    @AndroidFindBy(accessibility = "Link to Account, 14 of 16, button")
-    private AndroidElement linkToAccount;
-
-    @AndroidFindBy(accessibility = "Help, 15 of 16, button")
-    private AndroidElement helpLink;
-
-    @AndroidFindBy(accessibility = "Privacy & Legal, 16 of 16, button")
-    private AndroidElement privacyAndLegalLink;
-
     /**
      * @author Steven.Cardona
      * Go to the bottom of the screen
      */
-    public void goToBottomScreen(){
+    public void goToBottomScreen() {
         scrollDown(2);
     }
 
@@ -60,7 +55,7 @@ public class MenuScreen extends BaseScreen {
      * @author Steven.Cardona
      * return true if help link element is displayed in screen, otherwise false.
      */
-    public boolean isDisplayedHelpLink(){
+    public boolean isDisplayedHelpLink() {
         return isElementAvailable(helpLink);
     }
 
@@ -68,7 +63,7 @@ public class MenuScreen extends BaseScreen {
      * @author Steven.Cardona
      * return true if my profile link element is displayed in screen, otherwise false.
      */
-    public boolean isDisplayedMyProfileLink(){
+    public boolean isDisplayedMyProfileLink() {
         return isElementAvailable(myProfileLink);
     }
 
@@ -76,7 +71,7 @@ public class MenuScreen extends BaseScreen {
      * @author Steven.Cardona
      * return true if link to account element is displayed in screen, otherwise false.
      */
-    public boolean isDisplayedLinkToAccount(){
+    public boolean isDisplayedLinkToAccount() {
         return isElementAvailable(linkToAccount);
     }
 
@@ -84,7 +79,7 @@ public class MenuScreen extends BaseScreen {
      * @author Steven.Cardona
      * return true if property rules link element is displayed in screen, otherwise false.
      */
-    public boolean isDisplayedPropertyRulesLink(){
+    public boolean isDisplayedPropertyRulesLink() {
         return isElementAvailable(propertyRulesLink);
     }
 }

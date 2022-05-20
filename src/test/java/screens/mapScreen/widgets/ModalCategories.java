@@ -14,6 +14,11 @@ import java.util.ArrayList;
  */
 public class ModalCategories extends BaseScreen {
 
+    @AndroidFindBy(uiAutomator = "new UiSelector().descriptionMatches(\".*of10, button\")")
+    private ArrayList<AndroidElement> categoryList;
+    @AndroidFindBy(accessibility = "Hotels, Category, 9of10, button")
+    private AndroidElement categoryHotel;
+
     /**
      * Constructor method for standard screens object.
      *
@@ -24,17 +29,10 @@ public class ModalCategories extends BaseScreen {
         super(driver);
     }
 
-    @AndroidFindBy(xpath = "//androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout")
-    private ArrayList<AndroidElement> categoryList;
-
-
-    @AndroidFindBy(accessibility = "Hotels, Category, 9of10, button")
-    private AndroidElement categoryHotel;
-
     /**
+     * @return int
      * @author Steven.Cardona
      * return the number of items in the categories list
-     * @return int
      */
     public int getNumberOfCategories() {
         isElementAvailable(categoryList.get(0));
@@ -42,9 +40,9 @@ public class ModalCategories extends BaseScreen {
     }
 
     /**
+     * @return boolean
      * @author Steven.Cardona
      * return true if category "Hotel" exist in category list, otherwise false.
-     * @return boolean
      */
     public boolean existCategoryHotel() {
         return isElementAvailable(categoryHotel);

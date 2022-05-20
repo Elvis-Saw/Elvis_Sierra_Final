@@ -40,7 +40,7 @@ public class DashBoardScreen extends BaseScreen {
     private AndroidElement menuButton;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*tab_animated_icon\")")
-    private AndroidElement addAndOrderButton;
+    private AndroidElement plansButton;
 
     /**
      * @author Hans.Marquez
@@ -73,7 +73,7 @@ public class DashBoardScreen extends BaseScreen {
      * Navigate to Plans Screen from DashBoard Screen.
      */
     public PlansScreen goToPlansScreen() {
-        click(addAndOrderButton);
+        click(plansButton);
         return new PlansScreen(driver);
     }
 
@@ -91,5 +91,13 @@ public class DashBoardScreen extends BaseScreen {
      */
     public boolean menuButtonIsDisplayed() {
         return isElementAvailable(menuButton, 25);
+    }
+
+    /**
+     * @author Steven.Cardona
+     * return true if plans button element is displayed in screen, otherwise false.
+     */
+    public boolean plansButtonIsDisplayed() {
+        return isElementAvailable(plansButton, 25);
     }
 }

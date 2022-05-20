@@ -13,6 +13,11 @@ import util.screens.BaseScreen;
  */
 public class MapScreen extends BaseScreen {
 
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*categoryTitleLayout\")")
+    private AndroidElement categoryList;
+    @AndroidFindBy(id = "com.disney.wdpro.dlr:id/categoryTitle")
+    private AndroidElement categoryTitle;
+
     /**
      * Constructor method.
      *
@@ -22,9 +27,6 @@ public class MapScreen extends BaseScreen {
     public MapScreen(AndroidDriver<AndroidElement> driver) {
         super(driver);
     }
-
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*categoryTitleLayout\")")
-    private AndroidElement categoryList;
 
     /**
      * @author Hans.Marquez
@@ -41,5 +43,13 @@ public class MapScreen extends BaseScreen {
     public ModalCategories openCategoriesList() {
         click(categoryList);
         return new ModalCategories(driver);
+    }
+
+    /**
+     * @author Steven.Cardona
+     * return the text of category title
+     */
+    public String getCategoryTitle() {
+        return getText(categoryTitle);
     }
 }

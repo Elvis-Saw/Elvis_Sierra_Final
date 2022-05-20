@@ -8,6 +8,11 @@ import util.screens.BaseScreen;
 import java.util.List;
 
 public class PrivacyAndLegalScreen extends BaseScreen {
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*txt_element\")")
+    private List<AndroidElement> optionsLegalList;
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*snowball_header_screen_name\").childSelector(new UiSelector().className(\"android.widget.TextView\"))")
+    private AndroidElement titleScreen;
+
     /**
      * Constructor method for standard screens object.
      *
@@ -18,18 +23,11 @@ public class PrivacyAndLegalScreen extends BaseScreen {
         super(driver);
     }
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*txt_element\")")
-    private List<AndroidElement> optionsLegalList;
-
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*snowball_header_screen_name\").childSelector(new UiSelector().className(\"android.widget.TextView\"))")
-    private AndroidElement titleScreen;
-
-
     /**
      * @author Steven.Cardona
      * We get the size of the list of links
      */
-    public int getSizeOptionLegalList(){
+    public int getSizeOptionLegalList() {
         return optionsLegalList.size();
     }
 
@@ -37,7 +35,7 @@ public class PrivacyAndLegalScreen extends BaseScreen {
      * @author Steven.Cardona
      * Get the title from privacy and legal screen
      */
-    public String getTitleScreen(){
+    public String getTitleScreen() {
         return getText(titleScreen);
     }
 }

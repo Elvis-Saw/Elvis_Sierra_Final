@@ -12,6 +12,11 @@ import util.screens.BaseScreen;
  */
 public class TutorialScreen extends BaseScreen {
 
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*permission_primary_btn\")")
+    private AndroidElement getStartedButton;
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*skip_text\")")
+    private AndroidElement skipLocationButton;
+
     /**
      * Constructor method.
      *
@@ -22,31 +27,19 @@ public class TutorialScreen extends BaseScreen {
         super(driver);
     }
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*permission_primary_btn\")")
-    private AndroidElement getStartedButton;
-
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*permission_primary_btn\")")
-    private AndroidElement shareLocationButton;
-
-    @AndroidFindBy(id = "android:id/button1")
-    private AndroidElement allowLocationButton;
-
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*skip_text\")")
-    private AndroidElement skipLocationButton;
-
     /**
      * @author Hans.Marquez
      * Start permissions process.
      */
     public void startPermissionsProcess() {
-        click(getStartedButton,25);
+        click(getStartedButton, 25);
     }
 
     /**
      * @author Hans.Marquez
      * Share Location permissions process.
      */
-    public DashBoardScreen shareLocationPermissions() {
+    public DashBoardScreen skipLocationPermissions() {
         click(skipLocationButton);
         return new DashBoardScreen(driver);
     }
