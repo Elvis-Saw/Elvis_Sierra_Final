@@ -26,6 +26,9 @@ public class CategoryListTest extends BaseMobileTest {
         log.info("Go To Map Page");
         MapScreen map = dashBoard.goToMapScreen();
 
+        log.info("Validate the category title by default is equals to 'Attractions'");
+        Assert.assertEquals(map.getCategoryTitle(), "Attractions");
+
         log.info("Validate Category Button");
         Assert.assertTrue(map.categoryIsDisplayed(), "Category not displayed");
 
@@ -36,5 +39,4 @@ public class CategoryListTest extends BaseMobileTest {
         log.info("Validate Category Hotel exist in the categories list");
         Assert.assertTrue(categoriesScreen.existCategoryHotel(), "The category 'Hotel' not exist");
     }
-
 }

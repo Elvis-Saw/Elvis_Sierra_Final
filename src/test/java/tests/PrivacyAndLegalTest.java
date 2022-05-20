@@ -12,7 +12,7 @@ public class PrivacyAndLegalTest extends BaseMobileTest {
 
     @Description(value = "We are going to evaluate all links from the Privacy & Legal Screen")
     @Test
-    public void checkLegalAndPrivacyLinks(){
+    public void checkLegalAndPrivacyLinks() {
         log.info("Start Navigation to Menu Screen");
         DashBoardScreen dashBoard = loadDashBoardScreen();
         dashBoard.closeUpdateMessage();
@@ -20,6 +20,7 @@ public class PrivacyAndLegalTest extends BaseMobileTest {
         log.info("Validate Menu Button is Displayed");
         Assert.assertTrue(dashBoard.menuButtonIsDisplayed(), "Menu button not displayed");
 
+        log.info("Navigate to Menu Screen and go to the bottom");
         MenuScreen menuScreen = dashBoard.goToMenuScreen();
         menuScreen.goToBottomScreen();
 
@@ -31,6 +32,8 @@ public class PrivacyAndLegalTest extends BaseMobileTest {
 
         log.info("Navigate to privacy and legal screen");
         PrivacyAndLegalScreen privacyScreen = menuScreen.goToPrivacyScreen();
+
+        log.info("Validate that if we are on the privacy and legal screen");
         Assert.assertEquals(privacyScreen.getTitleScreen(), "Privacy & Legal");
         Assert.assertTrue(privacyScreen.getSizeOptionLegalList() >= 6, "Missing more links for the privacy and legal screen");
     }
