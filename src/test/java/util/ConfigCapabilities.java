@@ -4,8 +4,6 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 /**
@@ -28,7 +26,7 @@ public class ConfigCapabilities {
     private static final JsonParser parser = new JsonParser();
 
     /**
-     * SetUp's application.
+     * SetUp application.
      *
      * @param capabilities : DesiredCapabilities
      * @author Arley.Bolivar
@@ -65,10 +63,7 @@ public class ConfigCapabilities {
         try {
             Object obj = parser.parse(new FileReader(JSON_FILE_PATH));
             JsonObject jsonObject = (JsonObject) obj;
-            return jsonObject.get(property)
-                    .getAsString();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            return jsonObject.get(property).getAsString();
         } catch (Exception e) {
             e.printStackTrace();
         }
