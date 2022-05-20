@@ -4,9 +4,6 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.HowToUseLocators;
-import screens.mapScreen.MapScreen;
-import screens.menuScreen.MenuScreen;
-import screens.plansScreen.PlansScreen;
 import util.screens.BaseScreen;
 
 import static io.appium.java_client.pagefactory.LocatorGroupStrategy.ALL_POSSIBLE;
@@ -18,6 +15,16 @@ import static io.appium.java_client.pagefactory.LocatorGroupStrategy.ALL_POSSIBL
  */
 public class DashBoardScreen extends BaseScreen {
 
+    @AndroidFindBy(id = "android:id/button2")
+    private AndroidElement dismissPreferenceUpdateButton;
+    @HowToUseLocators(androidAutomation = ALL_POSSIBLE)
+    @AndroidFindBy(accessibility = "Map, Tab, 2of5")
+    @AndroidFindBy(uiAutomator = "//android.widget.ImageView[]")
+    private AndroidElement mapButton;
+    @AndroidFindBy(accessibility = "More Options, Tab, 5of5")
+    private AndroidElement menuButton;
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*tab_animated_icon\")")
+    private AndroidElement plansButton;
     /**
      * Constructor method.
      *
@@ -28,20 +35,6 @@ public class DashBoardScreen extends BaseScreen {
         super(driver);
     }
 
-    @AndroidFindBy(id = "android:id/button2")
-    private AndroidElement dismissPreferenceUpdateButton;
-
-    @HowToUseLocators(androidAutomation = ALL_POSSIBLE)
-    @AndroidFindBy(accessibility = "Map, Tab, 2of5")
-    @AndroidFindBy(uiAutomator = "//android.widget.ImageView[]")
-    private AndroidElement mapButton;
-
-    @AndroidFindBy(accessibility = "More Options, Tab, 5of5")
-    private AndroidElement menuButton;
-
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*tab_animated_icon\")")
-    private AndroidElement plansButton;
-
     /**
      * @author Hans.Marquez
      * Close the message about new updates
@@ -51,8 +44,10 @@ public class DashBoardScreen extends BaseScreen {
     }
 
     /**
-     * @author Hans.Marquez
      * Navigate to Map Screen from DashBoard Screen.
+     *
+     * @return MapScreen
+     * @author Hans.Marquez
      */
     public MapScreen goToMapScreen() {
         click(mapButton);
@@ -60,8 +55,10 @@ public class DashBoardScreen extends BaseScreen {
     }
 
     /**
-     * @author Steven.Cardona
      * Navigate to Settings Screen from DashBoard Screen.
+     *
+     * @return MenuScreen
+     * @author Steven.Cardona
      */
     public MenuScreen goToMenuScreen() {
         click(menuButton);
@@ -69,8 +66,10 @@ public class DashBoardScreen extends BaseScreen {
     }
 
     /**
-     * @author Steven.Cardona
      * Navigate to Plans Screen from DashBoard Screen.
+     *
+     * @return PlansScreen
+     * @author Steven.Cardona
      */
     public PlansScreen goToPlansScreen() {
         click(plansButton);
@@ -78,24 +77,30 @@ public class DashBoardScreen extends BaseScreen {
     }
 
     /**
+     * Check if map button element is displayed in screen, otherwise false.
+     *
+     * @return boolean
      * @author Steven.Cardona
-     * return true if map button element is displayed in screen, otherwise false.
      */
     public boolean mapButtonIsDisplayed() {
         return isElementAvailable(mapButton, 25);
     }
 
     /**
+     * Check if menu button element is displayed in screen, otherwise false.
+     *
+     * @return boolean
      * @author Steven.Cardona
-     * return true if menu button element is displayed in screen, otherwise false.
      */
     public boolean menuButtonIsDisplayed() {
         return isElementAvailable(menuButton, 25);
     }
 
     /**
+     * Check if plans button element is displayed in screen, otherwise false.
+     *
+     * @return boolean
      * @author Steven.Cardona
-     * return true if plans button element is displayed in screen, otherwise false.
      */
     public boolean plansButtonIsDisplayed() {
         return isElementAvailable(plansButton, 25);

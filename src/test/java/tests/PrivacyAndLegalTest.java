@@ -4,8 +4,8 @@ import org.springframework.context.annotation.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import screens.DashBoardScreen;
-import screens.menuScreen.MenuScreen;
-import screens.menuScreen.PrivacyAndLegalScreen;
+import screens.MenuScreen;
+import screens.PrivacyAndLegalScreen;
 import util.tests.BaseMobileTest;
 
 public class PrivacyAndLegalTest extends BaseMobileTest {

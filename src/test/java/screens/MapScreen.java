@@ -1,9 +1,9 @@
-package screens.mapScreen;
+package screens;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import screens.mapScreen.widgets.ModalCategories;
+import screens.widgets.ModalCategories;
 import util.screens.BaseScreen;
 
 /**
@@ -29,16 +29,20 @@ public class MapScreen extends BaseScreen {
     }
 
     /**
+     * Check if Category List element is displayed in screen, otherwise false.
+     *
+     * @return boolean
      * @author Hans.Marquez
-     * return true if Category List element is displayed in screen, otherwise false.
      */
     public boolean categoryIsDisplayed() {
         return isElementAvailable(categoryList);
     }
 
     /**
-     * @author Steven.Cardona
      * Open the list of Open the list of categories
+     *
+     * @return ModalCategories
+     * @author Steven.Cardona
      */
     public ModalCategories openCategoriesList() {
         click(categoryList);
@@ -46,8 +50,10 @@ public class MapScreen extends BaseScreen {
     }
 
     /**
+     * Get category title text
+     *
+     * @return String
      * @author Steven.Cardona
-     * return the text of category title
      */
     public String getCategoryTitle() {
         return getText(categoryTitle);

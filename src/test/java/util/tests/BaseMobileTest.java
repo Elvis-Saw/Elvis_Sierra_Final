@@ -67,9 +67,9 @@ public abstract class BaseMobileTest {
     }
 
     /**
-     * return SignUpOrLogInScreen after close the alerts.
+     * return DashBoardScreen after close the alerts.
      *
-     * @return SignUpOrLogInScreen
+     * @return DashBoardScreen
      * @author Arley.Bolivar
      */
     protected DashBoardScreen loadDashBoardScreen() {

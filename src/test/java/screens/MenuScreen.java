@@ -1,4 +1,4 @@
-package screens.menuScreen;
+package screens;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
@@ -43,8 +43,10 @@ public class MenuScreen extends BaseScreen {
     }
 
     /**
+     * We are going to the privacy and legal screen
+     *
+     * @return PrivacyAndLegalScreen
      * @author Steven.Cardona
-     * we are going to the privacy and legal screen
      */
     public PrivacyAndLegalScreen goToPrivacyScreen() {
         click(privacyAndLegalLink);
@@ -52,32 +54,40 @@ public class MenuScreen extends BaseScreen {
     }
 
     /**
+     * if help link element is displayed in screen, otherwise false.
+     *
+     * @return boolean
      * @author Steven.Cardona
-     * return true if help link element is displayed in screen, otherwise false.
      */
     public boolean isDisplayedHelpLink() {
         return isElementAvailable(helpLink);
     }
 
     /**
+     * Check if my profile link element is displayed in screen, otherwise false.
+     *
+     * @return boolean
      * @author Steven.Cardona
-     * return true if my profile link element is displayed in screen, otherwise false.
      */
     public boolean isDisplayedMyProfileLink() {
         return isElementAvailable(myProfileLink);
     }
 
     /**
+     * Check if link to account element is displayed in screen, otherwise false.
+     *
+     * @return boolean
      * @author Steven.Cardona
-     * return true if link to account element is displayed in screen, otherwise false.
      */
     public boolean isDisplayedLinkToAccount() {
         return isElementAvailable(linkToAccount);
     }
 
     /**
+     * Check if property rules link element is displayed in screen, otherwise false.
+     *
+     * @return boolean
      * @author Steven.Cardona
-     * return true if property rules link element is displayed in screen, otherwise false.
      */
     public boolean isDisplayedPropertyRulesLink() {
         return isElementAvailable(propertyRulesLink);

@@ -1,4 +1,4 @@
-package screens.plansScreen;
+package screens;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
@@ -30,16 +30,20 @@ public class PlansScreen extends BaseScreen {
     }
 
     /**
+     * Check if Dining option  is displayed in the list, otherwise false.
+     *
+     * @return return
      * @author Steven.Cardona
-     * return true if Dining option  is displayed in the list, otherwise false.
      */
     public boolean checkDiningOption() {
         return isElementAvailable(diningOption);
     }
 
     /**
-     * @author Steven.Cardona
      * Get the size of the option list
+     *
+     * @return int
+     * @author Steven.Cardona
      */
     public int getSizePlansOptionList() {
         return optionList.size();

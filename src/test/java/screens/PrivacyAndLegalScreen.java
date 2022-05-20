@@ -1,4 +1,4 @@
-package screens.menuScreen;
+package screens;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
@@ -24,16 +24,20 @@ public class PrivacyAndLegalScreen extends BaseScreen {
     }
 
     /**
+     * Get the size of the list of links
+     *
+     * @return int
      * @author Steven.Cardona
-     * We get the size of the list of links
      */
     public int getSizeOptionLegalList() {
         return optionsLegalList.size();
     }
 
     /**
-     * @author Steven.Cardona
      * Get the title from privacy and legal screen
+     *
+     * @return String
+     * @author Steven.Cardona
      */
     public String getTitleScreen() {
         return getText(titleScreen);

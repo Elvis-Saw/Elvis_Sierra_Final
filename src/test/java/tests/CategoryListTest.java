@@ -4,8 +4,8 @@ import org.springframework.context.annotation.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import screens.DashBoardScreen;
-import screens.mapScreen.MapScreen;
-import screens.mapScreen.widgets.ModalCategories;
+import screens.MapScreen;
+import screens.widgets.ModalCategories;
 import util.tests.BaseMobileTest;
 
 public class CategoryListTest extends BaseMobileTest {

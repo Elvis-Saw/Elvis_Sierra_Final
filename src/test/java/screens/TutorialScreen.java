@@ -36,8 +36,10 @@ public class TutorialScreen extends BaseScreen {
     }
 
     /**
+     * Skip Location permissions process and return a screen.
+     *
+     * @return DashBoardScreen
      * @author Hans.Marquez
-     * Share Location permissions process.
      */
     public DashBoardScreen skipLocationPermissions() {
         click(skipLocationButton);

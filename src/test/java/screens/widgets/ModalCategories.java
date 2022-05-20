@@ -1,4 +1,4 @@
-package screens.mapScreen.widgets;
+package screens.widgets;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
@@ -30,9 +30,10 @@ public class ModalCategories extends BaseScreen {
     }
 
     /**
+     * Get number of items of the categories list
+     *
      * @return int
      * @author Steven.Cardona
-     * return the number of items in the categories list
      */
     public int getNumberOfCategories() {
         isElementAvailable(categoryList.get(0));
@@ -40,9 +41,10 @@ public class ModalCategories extends BaseScreen {
     }
 
     /**
+     * Check if the category "Hotel" exists in the list of categories; otherwise false.
+     *
      * @return boolean
      * @author Steven.Cardona
-     * return true if category "Hotel" exist in category list, otherwise false.
      */
     public boolean existCategoryHotel() {
         return isElementAvailable(categoryHotel);

@@ -4,7 +4,7 @@ import org.springframework.context.annotation.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import screens.DashBoardScreen;
-import screens.plansScreen.PlansScreen;
+import screens.PlansScreen;
 import util.tests.BaseMobileTest;
 
 public class PlanTest extends BaseMobileTest {
