@@ -9,6 +9,8 @@ import util.tests.BaseMobileTest;
 
 public class NavigationTest extends BaseMobileTest {
 
+    private MapScreen loadMapScreen;
+
     /**
      * Validate Map Screen Navigation.
      */
@@ -27,6 +29,15 @@ public class NavigationTest extends BaseMobileTest {
 
         log.info("Validate Filter Button");
         Assert.assertTrue(map.filterIsDisplayed(), "Filter not displayed");
+    }
+
+    public void categoryList(){
+        log.info("Validate Show Category List");
+        MapScreen mapScreen = loadMapScreen;
+        MapScreen categorylist = mapScreen.goToMapScreen();
+        
+        log.info("Validate Category List Displayed");
+        Assert.assertTrue(categorylist.filterIsDisplayed(), "CategoryList not displayed");
     }
 
 }

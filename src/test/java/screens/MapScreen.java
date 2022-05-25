@@ -34,6 +34,12 @@ public class MapScreen extends BaseScreen {
     @AndroidFindBy(id = "toggleTitle")
     private AndroidElement showListButton;
 
+    @AndroidFindBy(id = "attractionList")
+    private AndroidElement tapCategoryList;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Hotels\")")
+    private AndroidElement hotels;
+
     /**
      * return true if Category List element is displayed in screen, otherwise false.
      */
@@ -53,6 +59,18 @@ public class MapScreen extends BaseScreen {
      */
     public boolean showListIsDisplayed() {
         return isElementAvailable(showListButton);
+    }
+
+    private AndroidElement attractionList;
+    private AndroidElement hotelsOption;
+
+    /**
+     * Navigate to Log in Screen from DashBoard Screen.
+     */
+    public MapScreen goToMapScreen() {
+        click(attractionList);
+        click(hotels);
+        return new MapScreen(driver);
     }
 
 }

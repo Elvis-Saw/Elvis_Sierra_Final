@@ -24,20 +24,20 @@ public class DashBoardScreen extends BaseScreen {
     /**
      * Go to map section.
      */
-    @AndroidFindBy(accessibility = "Map, Tab, 2of5")
-    private AndroidElement mapIcon;
 
     @HowToUseLocators(androidAutomation = ALL_POSSIBLE)
-    @AndroidFindBy(id = "button1")
-    @AndroidFindBy(id = "permission_primary_btn")
+    @AndroidFindBy(accessibility = "Map, Tab, 2of5")
+    @AndroidFindBy(id = "toggleTitle")
     private AndroidElement mapButton;
 
     /**
-     * Navigate to Login Screen from DashBoard Screen.
+     * Navigate to Log in Screen from DashBoard Screen.
      */
     public MapScreen goToMapScreen() {
-        click(mapIcon);
         click(mapButton);
         return new MapScreen(driver);
     }
+
+
+
 }

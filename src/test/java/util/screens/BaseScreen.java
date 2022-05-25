@@ -100,20 +100,18 @@ public abstract class BaseScreen {
     }
 
     /**
-     * Wrapper for click  event specifying custom wait.
+     * Wrapper for click event specifying custom wait.
      * @param element : AndroidElement
      */
     public void click(AndroidElement element, int timeout) {
-        WebDriverWait wait = new WebDriverWait(driver, timeout);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.visibilityOf(element));
         element.click();
     }
 
     /**
      * Wrapper for click event.
-     *
      * @param element : AndroidElement
-     * @author Hans.Marquez
      */
     public void click(AndroidElement element) {
         WebDriverWait wait = new WebDriverWait(driver, 10);
