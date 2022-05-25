@@ -23,6 +23,8 @@ public class ConfigCapabilities {
     private static final String JSON_FILE_PATH = "src/test/resources/mobile_capabilities.json";
     private static final String APP = "app";
     private static final String AUTOMATION_NAME = "automationName";
+
+    private static final String AUTO_GRANT_PERMISSIONS = "autoGrantPermissions";
     private static final JsonParser parser = new JsonParser();
 
     /**
@@ -63,9 +65,13 @@ public class ConfigCapabilities {
             JsonObject jsonObject = (JsonObject) obj;
             return jsonObject.get(property)
                     .getAsString();
-        } catch (FileNotFoundException e) {
+        }
+
+        catch (FileNotFoundException e) {
             e.printStackTrace();
-        } catch (Exception e) {
+        }
+
+        catch (Exception e) {
             e.printStackTrace();
         }
         return "";

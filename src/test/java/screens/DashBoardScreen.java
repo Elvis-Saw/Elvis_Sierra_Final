@@ -26,7 +26,7 @@ public class DashBoardScreen extends BaseScreen {
     }
 
     // AndroidElements
-    @AndroidFindBy(uiAutomator = "")
+    @AndroidFindBy(id = "")
     private AndroidElement dismissPreferenceUpdateButton;
 
     @HowToUseLocators(androidAutomation = ALL_POSSIBLE)

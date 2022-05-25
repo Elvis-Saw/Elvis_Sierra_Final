@@ -46,7 +46,6 @@ public abstract class BaseScreen {
                 driver, Duration.ofSeconds(0)), this);
     }
 
-
     /**
      * Scroll down (From Top to Bottom).
      *
