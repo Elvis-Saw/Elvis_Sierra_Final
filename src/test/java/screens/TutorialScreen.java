@@ -11,36 +11,34 @@ import static io.appium.java_client.pagefactory.LocatorGroupStrategy.ALL_POSSIBL
 
 /**
  * Object of the first screen that appears when we open the application.
- *
- * @author Arley.Bolivar
  */
 
 public class TutorialScreen extends BaseScreen {
 
     /**
      * Constructor method.
-     *
      * @param driver the driver
-     * @author Arley.Bolivar
      */
     public TutorialScreen(AndroidDriver<AndroidElement> driver) {
         super(driver);
     }
 
-    @AndroidFindBy(uiAutomator = "")
+    @AndroidFindBy(id = "permission_primary_btn")
     private AndroidElement getStartedButton;
 
-    @AndroidFindBy(uiAutomator = "")
+    @AndroidFindBy(id = "permission_primary_btn")
     private AndroidElement shareLocationButton;
 
-    @AndroidFindBy(uiAutomator = "")
+    @AndroidFindBy(id = "button1")
     private AndroidElement allowLocationButton;
 
-    @AndroidFindBy(uiAutomator = "")
+    @AndroidFindBy(id = "permission_allow_foreground_only_button")
     private AndroidElement allowButton;
 
+//    @AndroidFindBy(id = "button2")
+//    private AndroidElement importantUpdate;
+
     /**
-     * @author Hans.Marquez
      * Start permissions process.
      */
     public void startPermissionsProcess() {
@@ -48,7 +46,6 @@ public class TutorialScreen extends BaseScreen {
     }
 
     /**
-     * @author Hans.Marquez
      * Share Location permissions process.
      */
     public DashBoardScreen shareLocationPermissions() {
@@ -57,4 +54,10 @@ public class TutorialScreen extends BaseScreen {
         click(allowButton);
         return new DashBoardScreen(driver);
     }
+
+//    public DashBoardScreen importantUpdateOK(){
+//        click(importantUpdate);
+//        return new DashBoardScreen(driver);
+
+//    }
 }

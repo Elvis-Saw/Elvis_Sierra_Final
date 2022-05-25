@@ -15,8 +15,6 @@ import java.net.URL;
 
 /**
  * Base class for Test classes.
- *
- * @author helberth.bolivar
  */
 public abstract class BaseMobileTest {
 
@@ -30,8 +28,6 @@ public abstract class BaseMobileTest {
 
     /**
      * SetUp before to run suite of test.
-     *
-     * @author Arley.Bolivar
      */
     @BeforeMethod(alwaysRun = true)
     public void environmentSetUp() {
@@ -48,8 +44,6 @@ public abstract class BaseMobileTest {
 
     /**
      * Close the application after completing the test.
-     *
-     * @author Arley.Bolivar
      */
     @AfterMethod(alwaysRun = true)
     public void mobileApplicationEnd() {
@@ -58,9 +52,7 @@ public abstract class BaseMobileTest {
 
     /**
      * return the driver.
-     *
      * @return driver
-     * @author Arley.Bolivar
      */
     public AndroidDriver<AndroidElement> getDriver() {
         return driver;
@@ -68,11 +60,9 @@ public abstract class BaseMobileTest {
 
     /**
      * return SignUpOrLogInScreen after close the alerts.
-     *
      * @return SignUpOrLogInScreen
-     * @author Arley.Bolivar
      */
-    protected DashBoardScreen loadDashBoardScreen() {
+    public DashBoardScreen loadDashBoardScreen() {
         tutorialScreen.startPermissionsProcess();
         return tutorialScreen.shareLocationPermissions();
     }

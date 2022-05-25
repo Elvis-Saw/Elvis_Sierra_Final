@@ -10,32 +10,27 @@ import static io.appium.java_client.pagefactory.LocatorGroupStrategy.ALL_POSSIBL
 
 /**
  * DashBoard screen.
- *
- * @author Hans.Marquez
  */
 public class DashBoardScreen extends BaseScreen {
 
     /**
      * Constructor method.
-     *
      * @param driver : AndroidDriver
-     * @author Hans.Marquez
      */
     public DashBoardScreen(AndroidDriver<AndroidElement> driver) {
         super(driver);
     }
 
     // AndroidElements
-    @AndroidFindBy(id = "")
+    @AndroidFindBy(id = "button2")
     private AndroidElement dismissPreferenceUpdateButton;
 
     @HowToUseLocators(androidAutomation = ALL_POSSIBLE)
-    @AndroidFindBy(uiAutomator = "")
+    @AndroidFindBy(id = "button1")
     @AndroidFindBy(uiAutomator = "//android.widget.ImageView[]")
     private AndroidElement mapButton;
 
     /**
-     * @author Hans.Marquez
      * Navigate to Login Screen from DashBoard Screen.
      */
     public MapScreen goToMapScreen() {

@@ -19,8 +19,6 @@ import static java.lang.String.format;
 
 /**
  * Base class for all screens Objects.
- *
- * @author Arley.Bolivar
  */
 public abstract class BaseScreen {
 
@@ -36,21 +34,17 @@ public abstract class BaseScreen {
 
     /**
      * Constructor method for standard screens object.
-     *
      * @param driver : AndroidDriver
-     * @author Arley.Bolivar, Hans.Marquez
      */
     public BaseScreen(AndroidDriver<AndroidElement> driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(
-                driver, Duration.ofSeconds(0)), this);
+                driver, Duration.ofSeconds(10)), this);
     }
 
     /**
      * Scroll down (From Top to Bottom).
-     *
      * @param swipes the swipes
-     * @author Hans.Marquez
      */
     public void scrollDown(int swipes) {
         String locator = "new UiScrollable(new UiSelector().resourceIdMatches(\".*ontainer.*\")).flingToEnd(1)";
@@ -59,19 +53,15 @@ public abstract class BaseScreen {
 
     /**
      * Scroll Up (From Bottom to Top).
-     *
      * @param swipes the swipes
-     * @author Hans.Marquez
      */
     public void scrollUp(int swipes) {
         String locator = "new UiScrollable(new UiSelector().resourceIdMatches(\".*ontainer.*\")).flingToBeginning(1)";
         scroll(locator, swipes);
     }
 
-
     /**
      * Scroll.
-     *
      * @param locator the locator
      * @param swipes  the swipes
      */
@@ -89,9 +79,7 @@ public abstract class BaseScreen {
 
     /**
      * Scroll to the text attribute received by parameter.
-     *
      * @param text : String
-     * @author Arley.Bolivar
      */
     public void scrollToText(String text) {
         String automator = "new UiScrollable(new UiSelector()).scrollIntoView(new UiSelector().textContains(\"%s\"))";
@@ -101,7 +89,6 @@ public abstract class BaseScreen {
 
     /**
      * Swipe vertical.
-     *
      * @param percentage of swipe
      */
     @SuppressWarnings({"rawtypes", "unused"})
@@ -112,19 +99,15 @@ public abstract class BaseScreen {
                 -360)).release().perform();
     }
 
-
     /**
      * Wrapper for click  event specifying custom wait.
-     *
      * @param element : AndroidElement
-     * @author Hans.Marquez
      */
     public void click(AndroidElement element, int timeout) {
         WebDriverWait wait = new WebDriverWait(driver, timeout);
         wait.until(ExpectedConditions.visibilityOf(element));
         element.click();
     }
-
 
     /**
      * Wrapper for click event.
@@ -133,18 +116,15 @@ public abstract class BaseScreen {
      * @author Hans.Marquez
      */
     public void click(AndroidElement element) {
-        WebDriverWait wait = new WebDriverWait(driver, 15);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.visibilityOf(element));
         element.click();
     }
 
-
     /**
      * Wrapper for sendKeys event.
-     *
      * @param element   : AndroidElement
      * @param sequence: String
-     * @author Hans.Marquez
      */
     public void sendKeys(AndroidElement element, String sequence) {
         WebDriverWait wait = new WebDriverWait(driver, 15);
@@ -154,12 +134,10 @@ public abstract class BaseScreen {
 
     /**
      * Wrapper for Visibility event.
-     *
      * @param element : AndroidElement
-     * @author Hans.Marquez
      */
     public boolean isElementAvailable(AndroidElement element) {
-        WebDriverWait wait = new WebDriverWait(driver, 3);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         try {
             wait.until(ExpectedConditions.visibilityOf(element));
             return true;
@@ -170,14 +148,12 @@ public abstract class BaseScreen {
 
     /**
      * Wrapper for Visibility event.
-     *
      * @param element : AndroidElement
      * @param timeout : int
-     * @author Hans.Marquez
      */
     public boolean isElementAvailable(AndroidElement element, int timeout) {
         WebDriverWait wait = new WebDriverWait(driver, timeout);
-        try {
+       try {
             wait.until(ExpectedConditions.visibilityOf(element));
             return true;
         } catch (NoSuchElementException | TimeoutException e) {

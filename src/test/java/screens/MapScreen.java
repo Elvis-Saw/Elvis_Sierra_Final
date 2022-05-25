@@ -12,33 +12,28 @@ import static io.appium.java_client.pagefactory.LocatorGroupStrategy.ALL_POSSIBL
 
 /**
  * Map screen.
- *
- * @author Hans.Marquez
  */
 public class MapScreen extends BaseScreen {
 
     /**
      * Constructor method.
-     *
      * @param driver the driver
-     * @author Hans.Marquez
      */
     public MapScreen(AndroidDriver<AndroidElement> driver) {
         super(driver);
     }
 
     // AndroidElements
-    @AndroidFindBy(uiAutomator = "")
+    @AndroidFindBy(id = "categoryTitle")
     private AndroidElement categoryList;
 
-    @AndroidFindBy(uiAutomator = "")
+    @AndroidFindBy(id = "filterTitle")
     private AndroidElement filterButton;
 
-    @AndroidFindBy(uiAutomator = "")
+    @AndroidFindBy(id = "toggleTitle")
     private AndroidElement showListButton;
 
     /**
-     * @author Hans.Marquez
      * return true if Category List element is displayed in screen, otherwise false.
      */
     public boolean categoryIsDisplayed() {
@@ -46,7 +41,6 @@ public class MapScreen extends BaseScreen {
     }
 
     /**
-     * @author Hans.Marquez
      * return true if Filter Button element is displayed in screen, otherwise false.
      */
     public boolean filterIsDisplayed() {
@@ -54,7 +48,6 @@ public class MapScreen extends BaseScreen {
     }
 
     /**
-     * @author Hans.Marquez
      * return true if Show List Button element is displayed in screen, otherwise false.
      */
     public boolean showListIsDisplayed() {
