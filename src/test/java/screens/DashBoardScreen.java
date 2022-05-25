@@ -21,20 +21,22 @@ public class DashBoardScreen extends BaseScreen {
         super(driver);
     }
 
-    // AndroidElements
-    @AndroidFindBy(id = "button2")
-    private AndroidElement dismissPreferenceUpdateButton;
+    /**
+     * Go to map section.
+     */
+    @AndroidFindBy(accessibility = "Map, Tab, 2of5")
+    private AndroidElement mapIcon;
 
     @HowToUseLocators(androidAutomation = ALL_POSSIBLE)
     @AndroidFindBy(id = "button1")
-    @AndroidFindBy(uiAutomator = "//android.widget.ImageView[]")
+    @AndroidFindBy(id = "permission_primary_btn")
     private AndroidElement mapButton;
 
     /**
      * Navigate to Login Screen from DashBoard Screen.
      */
     public MapScreen goToMapScreen() {
-        click(dismissPreferenceUpdateButton);
+        click(mapIcon);
         click(mapButton);
         return new MapScreen(driver);
     }

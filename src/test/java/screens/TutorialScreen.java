@@ -26,17 +26,17 @@ public class TutorialScreen extends BaseScreen {
     @AndroidFindBy(id = "permission_primary_btn")
     private AndroidElement getStartedButton;
 
-    @AndroidFindBy(id = "permission_primary_btn")
+    @AndroidFindBy(className = "android.widget.Button")
     private AndroidElement shareLocationButton;
 
-    @AndroidFindBy(id = "button1")
+    @AndroidFindBy(id = "android:id/button1")
     private AndroidElement allowLocationButton;
 
-    @AndroidFindBy(id = "permission_allow_foreground_only_button")
+    @AndroidFindBy(id = "com.android.permissioncontroller:id/permission_allow_foreground_only_button")
     private AndroidElement allowButton;
 
-//    @AndroidFindBy(id = "button2")
-//    private AndroidElement importantUpdate;
+    @AndroidFindBy(id = "android:id/button2")
+    private AndroidElement importantUpdate;
 
     /**
      * Start permissions process.
@@ -52,12 +52,9 @@ public class TutorialScreen extends BaseScreen {
         click(shareLocationButton);
         click(allowLocationButton);
         click(allowButton);
+        click(importantUpdate);
         return new DashBoardScreen(driver);
     }
 
-//    public DashBoardScreen importantUpdateOK(){
-//        click(importantUpdate);
-//        return new DashBoardScreen(driver);
 
-//    }
 }

@@ -18,7 +18,7 @@ import java.net.URL;
  */
 public abstract class BaseMobileTest {
 
-    protected TutorialScreen tutorialScreen;
+    public TutorialScreen tutorialScreen;
     public static AndroidDriver<AndroidElement> driver;
     public Logger log = Logger.getLogger(BaseMobileTest.class);
 
@@ -62,7 +62,7 @@ public abstract class BaseMobileTest {
      * return SignUpOrLogInScreen after close the alerts.
      * @return SignUpOrLogInScreen
      */
-    public DashBoardScreen loadDashBoardScreen() {
+    protected DashBoardScreen loadDashBoardScreen() {
         tutorialScreen.startPermissionsProcess();
         return tutorialScreen.shareLocationPermissions();
     }

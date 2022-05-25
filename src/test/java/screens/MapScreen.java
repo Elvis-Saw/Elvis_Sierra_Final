@@ -24,6 +24,7 @@ public class MapScreen extends BaseScreen {
     }
 
     // AndroidElements
+
     @AndroidFindBy(id = "categoryTitle")
     private AndroidElement categoryList;
 

@@ -6,6 +6,5 @@
 	"appActivity": "com.disney.wdpro.park.activities.SplashActivity",
 	"app": "C:\\Users\\elvis.sierra\\Downloads\\disneyland-7-4.apk",
 	"automationName": "UiAutomator2",
-
 	"fullReset": "true"
 }

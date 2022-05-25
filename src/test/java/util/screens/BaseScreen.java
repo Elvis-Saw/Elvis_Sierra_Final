@@ -39,7 +39,7 @@ public abstract class BaseScreen {
     public BaseScreen(AndroidDriver<AndroidElement> driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(
-                driver, Duration.ofSeconds(10)), this);
+                driver, Duration.ofSeconds(0)), this);
     }
 
     /**
@@ -137,7 +137,7 @@ public abstract class BaseScreen {
      * @param element : AndroidElement
      */
     public boolean isElementAvailable(AndroidElement element) {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, 15);
         try {
             wait.until(ExpectedConditions.visibilityOf(element));
             return true;
@@ -152,8 +152,8 @@ public abstract class BaseScreen {
      * @param timeout : int
      */
     public boolean isElementAvailable(AndroidElement element, int timeout) {
-        WebDriverWait wait = new WebDriverWait(driver, timeout);
-       try {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        try {
             wait.until(ExpectedConditions.visibilityOf(element));
             return true;
         } catch (NoSuchElementException | TimeoutException e) {
